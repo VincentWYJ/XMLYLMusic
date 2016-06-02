@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_download"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="10"
+        android:title="@string/action_download"
+        android:icon="@drawable/ic_fa_download"/>
+
+    <item
+        android:id="@+id/action_share"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="10"
+        android:title="@string/action_share"
+        android:icon="@drawable/ic_fa_share"
+        android:actionProviderClass="android.widget.ShareActionProvider"/>
+    
+</menu>

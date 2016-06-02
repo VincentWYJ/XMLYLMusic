@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/control_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" 
+        android:background="#ffffff" >
+        
+        <View android:id="@+id/viewline_control"
+            android:layout_width="match_parent"
+        	android:layout_height="1dp"
+	        android:layout_marginStart="0dp"
+	        android:layout_marginTop="5dp"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginEnd="0dp"
+	        android:background="@color/viewline_color" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="3dp"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="@string/no_music_playing" />
+
+        <RelativeLayout
+            android:id="@+id/control_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/message"
+            android:layout_margin="3dp"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/sound_cover"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@null"
+                android:onClick="Refresh" />
+
+            <SeekBar
+                android:id="@+id/seek_bar"
+                android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+				android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/sound_cover"
+                android:progressTint="@color/seekbar_process_color"
+                android:secondaryProgressTint="@color/seekbar_secondprocess_color"
+		        android:thumb="@drawable/indicator"
+		        android:thumbOffset="0dp"
+		        android:maxHeight="10dp"
+		        android:minHeight="10dp" />
+            <!-- style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal" -->
+			<!-- style="?android:attr/progressBarStyle" -->
+
+            <ProgressBar
+                android:id="@+id/buffering_progress"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/seek_bar"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"
+                android:indeterminateDrawable="@drawable/progressbar_color_style"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/pre_sound"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/seek_bar"
+                android:layout_alignParentBottom="true"
+                android:scaleType="fitCenter"
+                android:layout_marginStart="50dp"
+                android:background="@drawable/music_pre_drawable"
+                android:contentDescription="@null" />
+
+            <ImageButton
+                android:id="@+id/play_or_pause"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignTop="@+id/pre_sound"
+                android:layout_toEndOf="@+id/pre_sound"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                android:layout_marginStart="35dp"
+                android:background="@drawable/music_pause_drawable"
+                android:contentDescription="@null" />
+
+            <ImageButton
+                android:id="@+id/next_sound"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignTop="@+id/pre_sound"
+                android:layout_toEndOf="@+id/play_or_pause"
+                android:scaleType="fitCenter"
+                android:layout_marginStart="35dp"
+                android:background="@drawable/music_next_drawable"
+                android:contentDescription="@null" />
+            
+        </RelativeLayout>
+        
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/table_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tablayout_bg_color" >
+        
+	    <android.support.design.widget.TabLayout
+	        android:id="@+id/table_layout"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+	        app:tabIndicatorColor="@color/black_color"
+	        app:tabIndicatorHeight="2dp"
+	        app:tabSelectedTextColor="@color/black_color"
+	        app:tabTextColor="@color/subblack_color"
+	        app:tabMode="scrollable"
+	        app:tabGravity="center" />
+            
+        <View
+            android:layout_width="1dp"
+        	android:layout_height="30dp"
+        	android:layout_gravity="center"
+	        android:layout_marginStart="10dp"
+	        android:layout_marginEnd="10dp"
+	        android:background="@color/black_color" />
+            
+	    <Button
+	        android:id="@+id/more_class"
+	        android:layout_width="30dp"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:padding="0dp"
+	        android:gravity="center"
+	        android:layout_marginEnd="10dp"
+	        android:background="@color/transparent_color"
+	        android:textColor="@color/black_color"
+	        android:textAppearance="@style/MyTabLayoutTextAppearance"
+	        android:text="@string/text_more_class" />
+	    
+	    <ImageView
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="center"
+	        android:layout_marginStart="2dp"
+	        android:layout_marginEnd="5dp"
+	        android:visibility="gone"
+	        android:contentDescription="@null" />
+    
+    </LinearLayout>
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/table_relativelayout"
+        android:layout_above="@id/control_layout"
+        android:background="#ffffff" >
+        <!-- 
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="top" />
+         -->
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>
